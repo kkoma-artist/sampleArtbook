@@ -4,56 +4,42 @@
   <meta charset="UTF-8">
   <title>StPageFlip 아트북</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- 필수 CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/stpageflip@2.0.0/dist/pageflip.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/page-flip.min.css">
   <style>
     html, body {
       margin: 0;
-      padding: 0;
       height: 100%;
       background: #ddd;
-      overflow: hidden;
     }
-
     #container {
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
     }
   </style>
 </head>
 <body>
 
-  <!-- flipbook 렌더링할 영역 -->
-  <div id="container"></div>
+<div id="container"></div>
 
-  <!-- 필수 JS -->
-  <script src="https://cdn.jsdelivr.net/npm/stpageflip@2.0.0/dist/pageflip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/page-flip.browser.js"></script>
+<script>
+  const pageFlip = new PageFlip(document.getElementById("container"), {
+    width: 600,
+    height: 800,
+    size: "stretch",
+    autoCenter: true,
+    showCover: false,
+    maxShadowOpacity: 0.5,
+    mobileScrollSupport: true
+  });
 
-  <script>
-    const pageFlip = new St.PageFlip(document.getElementById("container"), {
-      width: 600,
-      height: 800,
-      size: "stretch",
-      minWidth: 315,
-      maxWidth: 1000,
-      minHeight: 400,
-      maxHeight: 1536,
-      drawShadow: true,
-      flippingTime: 700,
-      useMouseEvents: true,
-      showCover: false,
-      mobileScrollSupport: true
-    });
+  const pages = [];
+  for (let i = 1; i <= 18; i++) {
+    pages.push(`page${i}.jpg`);
+  }
 
-    // 이미지 경로 배열
-    const pages = [];
-    for (let i = 1; i <= 18; i++) {
-      pages.push(`page${i}.jpg`);
-    }
-
-    pageFlip.loadFromImages(pages);
-  </script>
+  pageFlip.loadFromImages(pages);
+</script>
 
 </body>
 </html>
