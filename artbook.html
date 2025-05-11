@@ -5,7 +5,7 @@
   <title>StPageFlip 아트북</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- CSS -->
+  <!-- ✅ 올바른 CSS 경로 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/src/Style/stPageFlip.min.css" />
 
   <style>
@@ -23,12 +23,11 @@
 <body>
   <div id="container"></div>
 
-  <!-- JS (defer 속성 추가) -->
+  <!-- ✅ 반드시 defer로 로드 -->
   <script defer src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
 
-  <!-- 실행 코드: window.onload로 DOM + 스크립트 로딩 보장 -->
   <script>
-    window.onload = function () {
+    window.addEventListener("DOMContentLoaded", () => {
       const pageFlip = new PageFlip(document.getElementById("container"), {
         width: 600,
         height: 800,
@@ -36,7 +35,7 @@
         autoCenter: true,
         showCover: false,
         maxShadowOpacity: 0.5,
-        mobileScrollSupport: true
+        mobileScrollSupport: true,
       });
 
       const pages = [];
@@ -45,7 +44,7 @@
       }
 
       pageFlip.loadFromImages(pages);
-    };
+    });
   </script>
 </body>
 </html>
