@@ -4,10 +4,14 @@
   <meta charset="UTF-8">
   <title>StPageFlip 아트북</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/page-flip.min.css">
+
+  <!-- 최신 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/src/Style/stPageFlip.min.css" rel="stylesheet">
+
   <style>
     html, body {
       margin: 0;
+      padding: 0;
       height: 100%;
       background: #ddd;
     }
@@ -19,27 +23,32 @@
 </head>
 <body>
 
-<div id="container"></div>
+  <div id="container"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/page-flip.browser.js"></script>
-<script>
-  const pageFlip = new PageFlip(document.getElementById("container"), {
-    width: 600,
-    height: 800,
-    size: "stretch",
-    autoCenter: true,
-    showCover: false,
-    maxShadowOpacity: 0.5,
-    mobileScrollSupport: true
-  });
+  <!-- 최신 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
 
-  const pages = [];
-  for (let i = 1; i <= 18; i++) {
-    pages.push(`page${i}.jpg`);
-  }
+  <script>
+    const pageFlip = new PageFlip(document.getElementById("container"), {
+      width: 600,
+      height: 800,
+      size: "stretch",
+      minWidth: 315,
+      maxWidth: 1000,
+      minHeight: 400,
+      maxHeight: 1536,
+      maxShadowOpacity: 0.5,
+      showCover: false,
+      mobileScrollSupport: true
+    });
 
-  pageFlip.loadFromImages(pages);
-</script>
+    const pages = [];
+    for (let i = 1; i <= 18; i++) {
+      pages.push(`page${i}.jpg`);
+    }
+
+    pageFlip.loadFromImages(pages);
+  </script>
 
 </body>
 </html>
