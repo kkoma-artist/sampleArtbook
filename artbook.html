@@ -2,30 +2,34 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>아트북 샘플</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artbook Sample</title>
   <style>
-    body {
-      margin: 0;
-      background: #eee;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    #flipbook {
-      width: 800px;
-      height: 500px;
-    }
-    #flipbook div {
-      width: 400px;
-      height: 500px;
-      background: white;
+body {
+    overflow: hidden;
+}
+
+#book {
+    margin: 5% auto;
+    width: 800px;
+    height: 400px;
+}
+
+#book .turn-page {
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+#book div {
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center;
     }
   </style>
 </head>
 <body>
 
-<div id="flipbook">
+<div id="book">
   <div><img src="page1.jpg" width="100%" height="100%"></div>
   <div><img src="page2.jpg" width="100%" height="100%"></div>
   <div><img src="page3.jpg" width="100%" height="100%"></div>
@@ -52,15 +56,7 @@
 <script src="js/turn.min.js"></script>
 
 <script>
-  $(function () {
-    $('#flipbook').turn({
-      width: 800,
-      height: 500,
-      autoCenter: true,
-      elevation: 50,
-      gradients: true
-    });
-  });
+  $('#book').turn({gradients: true, acceleration: true});
 </script>
 
 </body>
