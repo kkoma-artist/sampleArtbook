@@ -5,7 +5,7 @@
   <title>StPageFlip 아트북</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- 올바른 CSS 경로 -->
+  <!-- CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/src/Style/stPageFlip.min.css" />
 
   <style>
@@ -23,26 +23,29 @@
 <body>
   <div id="container"></div>
 
-  <!-- ✅ 올바른 JS 경로 -->
-  <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
+  <!-- JS (defer 속성 추가) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
 
+  <!-- 실행 코드: window.onload로 DOM + 스크립트 로딩 보장 -->
   <script>
-    const pageFlip = new PageFlip(document.getElementById("container"), {
-      width: 600,
-      height: 800,
-      size: "stretch",
-      autoCenter: true,
-      showCover: false,
-      maxShadowOpacity: 0.5,
-      mobileScrollSupport: true,
-    });
+    window.onload = function () {
+      const pageFlip = new PageFlip(document.getElementById("container"), {
+        width: 600,
+        height: 800,
+        size: "stretch",
+        autoCenter: true,
+        showCover: false,
+        maxShadowOpacity: 0.5,
+        mobileScrollSupport: true
+      });
 
-    const pages = [];
-    for (let i = 1; i <= 18; i++) {
-      pages.push(`page${i}.jpg`);
-    }
+      const pages = [];
+      for (let i = 1; i <= 18; i++) {
+        pages.push(`page${i}.jpg`);
+      }
 
-    pageFlip.loadFromImages(pages);
+      pageFlip.loadFromImages(pages);
+    };
   </script>
 </body>
 </html>
