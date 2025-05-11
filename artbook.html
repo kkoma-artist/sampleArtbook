@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>StPageFlip 아트북</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- 최신 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/src/Style/stPageFlip.min.css" rel="stylesheet">
+  <!-- 올바른 CSS 경로 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/src/Style/stPageFlip.min.css" />
 
   <style>
     html, body {
       margin: 0;
-      padding: 0;
       height: 100%;
-      background: #ddd;
+      background: #eee;
     }
     #container {
       width: 100%;
@@ -22,10 +21,9 @@
   </style>
 </head>
 <body>
-
   <div id="container"></div>
 
-  <!-- 최신 JS -->
+  <!-- ✅ 올바른 JS 경로 -->
   <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
 
   <script>
@@ -33,13 +31,10 @@
       width: 600,
       height: 800,
       size: "stretch",
-      minWidth: 315,
-      maxWidth: 1000,
-      minHeight: 400,
-      maxHeight: 1536,
-      maxShadowOpacity: 0.5,
+      autoCenter: true,
       showCover: false,
-      mobileScrollSupport: true
+      maxShadowOpacity: 0.5,
+      mobileScrollSupport: true,
     });
 
     const pages = [];
@@ -49,6 +44,5 @@
 
     pageFlip.loadFromImages(pages);
   </script>
-
 </body>
 </html>
