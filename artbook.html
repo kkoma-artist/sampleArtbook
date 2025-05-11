@@ -2,62 +2,51 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <title>아트북 샘플</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Artbook Sample</title>
+
+  <!-- StPageFlip 스타일 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/stpageflip@2.0.0/dist/pageflip.min.css" />
   <style>
-body {
-    overflow: hidden;
-}
+    body {
+      margin: 0;
+      background-color: #ccc;
+    }
 
-#book {
-    margin: 5% auto;
-    width: 1180px;
-    height: 420px;
-}
-
-#book .turn-page {
-    -webkit-background-size: 100% 100%;
-    background-size: 100% 100%;
-}
-
-#book div {
-    -webkit-background-size: cover;
-    background-size: cover;
-    background-position: center center;
+    #flipbook {
+      width: 100vw;
+      height: 100vh;
     }
   </style>
 </head>
 <body>
 
-<div id="book">
-  <div><img src="page1.jpg" width="100%" height="100%"></div>
-  <div><img src="page2.jpg" width="100%" height="100%"></div>
-  <div><img src="page3.jpg" width="100%" height="100%"></div>
-  <div><img src="page4.jpg" width="100%" height="100%"></div>
-  <div><img src="page5.jpg" width="100%" height="100%"></div>
-  <div><img src="page6.jpg" width="100%" height="100%"></div>
-  <div><img src="page7.jpg" width="100%" height="100%"></div>
-  <div><img src="page8.jpg" width="100%" height="100%"></div>
-  <div><img src="page9.jpg" width="100%" height="100%"></div>
-  <div><img src="page10.jpg" width="100%" height="100%"></div>
-  <div><img src="page11.jpg" width="100%" height="100%"></div>
-  <div><img src="page12.jpg" width="100%" height="100%"></div>
-  <div><img src="page13.jpg" width="100%" height="100%"></div>
-  <div><img src="page14.jpg" width="100%" height="100%"></div>
-  <div><img src="page15.jpg" width="100%" height="100%"></div>
-  <div><img src="page16.jpg" width="100%" height="100%"></div>
-  <div><img src="page17.jpg" width="100%" height="100%"></div>
-  <div><img src="page18.jpg" width="100%" height="100%"></div>
-</div>
+  <div id="flipbook"></div>
 
+  <!-- StPageFlip JS -->
+  <script src="https://cdn.jsdelivr.net/npm/stpageflip@2.0.0/dist/pageflip.min.js"></script>
+  <script>
+    const pageFlip = new St.PageFlip(
+      document.getElementById("flipbook"),
+      {
+        width: 400,
+        height: 600,
+        size: "stretch",
+        autoCenter: true,
+        maxShadowOpacity: 0.5,
+        showCover: false,
+        mobileScrollSupport: false,
+      }
+    );
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
-<script src="turn.min.js"></script>
-
-<script>
-  $('#book').turn({gradients: true, acceleration: true});
-</script>
+    pageFlip.loadFromImages([
+      "page1.jpg", "page2.jpg", "page3.jpg", "page4.jpg",
+      "page5.jpg", "page6.jpg", "page7.jpg", "page8.jpg",
+      "page9.jpg", "page10.jpg", "page11.jpg", "page12.jpg",
+      "page13.jpg", "page14.jpg", "page15.jpg", "page16.jpg",
+      "page17.jpg", "page18.jpg"
+    ]);
+  </script>
 
 </body>
 </html>
