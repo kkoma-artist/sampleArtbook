@@ -2,18 +2,21 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>아트북 샘플</title>
+  <title>StPageFlip 아트북</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- StPageFlip 스타일 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/stpageflip@2.0.0/dist/pageflip.min.css" />
+  <!-- 필수 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/stpageflip@2.0.0/dist/pageflip.min.css">
   <style>
-    body {
+    html, body {
       margin: 0;
-      background-color: #ccc;
+      padding: 0;
+      height: 100%;
+      background: #ddd;
+      overflow: hidden;
     }
 
-    #flipbook {
+    #container {
       width: 100vw;
       height: 100vh;
     }
@@ -21,31 +24,35 @@
 </head>
 <body>
 
-  <div id="flipbook"></div>
+  <!-- flipbook 렌더링할 영역 -->
+  <div id="container"></div>
 
-  <!-- StPageFlip JS -->
+  <!-- 필수 JS -->
   <script src="https://cdn.jsdelivr.net/npm/stpageflip@2.0.0/dist/pageflip.min.js"></script>
-  <script>
-    const pageFlip = new St.PageFlip(
-      document.getElementById("flipbook"),
-      {
-        width: 400,
-        height: 600,
-        size: "stretch",
-        autoCenter: true,
-        maxShadowOpacity: 0.5,
-        showCover: false,
-        mobileScrollSupport: false,
-      }
-    );
 
-    pageFlip.loadFromImages([
-      "page1.jpg", "page2.jpg", "page3.jpg", "page4.jpg",
-      "page5.jpg", "page6.jpg", "page7.jpg", "page8.jpg",
-      "page9.jpg", "page10.jpg", "page11.jpg", "page12.jpg",
-      "page13.jpg", "page14.jpg", "page15.jpg", "page16.jpg",
-      "page17.jpg", "page18.jpg"
-    ]);
+  <script>
+    const pageFlip = new St.PageFlip(document.getElementById("container"), {
+      width: 600,
+      height: 800,
+      size: "stretch",
+      minWidth: 315,
+      maxWidth: 1000,
+      minHeight: 400,
+      maxHeight: 1536,
+      drawShadow: true,
+      flippingTime: 700,
+      useMouseEvents: true,
+      showCover: false,
+      mobileScrollSupport: true
+    });
+
+    // 이미지 경로 배열
+    const pages = [];
+    for (let i = 1; i <= 18; i++) {
+      pages.push(`images/page${i}.jpg`);
+    }
+
+    pageFlip.loadFromImages(pages);
   </script>
 
 </body>
