@@ -46,12 +46,13 @@
   <div><img src="page18.jpg" width="100%" height="100%"></div>
 </div>
 
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/blasten/turn.js@master/lib/turn.min.js"></script>
+<!-- jQuery 먼저 -->
+<script src="js/jquery.min.js"></script>
+<!-- 그다음 turn.js -->
+<script src="js/turn.min.js"></script>
 
 <script>
-  $(document).ready(function () {
+  $(function () {
     $('#flipbook').turn({
       width: 800,
       height: 500,
